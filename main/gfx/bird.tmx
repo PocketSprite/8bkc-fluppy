@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="6" height="3" tilewidth="8" tileheight="8" nextobjectid="1">
+ <tileset firstgid="1" source="fbtiles.tsx"/>
+ <layer name="bird" width="6" height="3">
+  <data encoding="csv">
+49,50,51,109,110,0,
+69,70,71,129,130,0,
+0,0,0,149,150,0
+</data>
+ </layer>
+</map>

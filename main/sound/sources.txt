@@ -1,0 +1,10 @@
+Sources of the sounds:
+
+slap.wav: 
+https://freesound.org/people/nextmaking/sounds/86019/
+CC Sampling+ license, 'nextmaking'
+
+woosh.wav:
+https://freesound.org/people/SypherZent/sounds/420668/
+CC0-licensed
+
