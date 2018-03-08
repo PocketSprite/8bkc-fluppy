@@ -8,10 +8,13 @@
 #
 
 
+# This converts all the tile files into one big graphics.[ch] file.
 GFX_TILE_FILES := gfx/bgnd.tmx gfx/bird.tmx gfx/menu.tmx gfx/pipe.tmx gfx/score.tmx
-
 $(eval $(call ConvertTiles,$(GFX_TILE_FILES),graphics))
 
+# Because we use the ConvertTiles macro, we need to tell the make system which other objects
+# to compile manually.
 COMPONENT_OBJS += app_main.o
 
+# The wave files get embedded as binary files.
 COMPONENT_EMBED_FILES := sound/slap.wav sound/whoosh.wav
