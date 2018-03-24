@@ -16,6 +16,7 @@
 #include "sndmixer.h"
 #include "esp_timer.h"
 #include <math.h>
+#include "powerbtn_menu.h"
 #include "graphics.h"
 
 /*
@@ -72,6 +73,12 @@ tilegfx_map_t *pipemap;		//Tilemap with all generated pipes in it
 int score=0;				//Current players score
 int hiscore=0;				//All-time high score
 tilegfx_map_t *scoremap;	//Map with score and highscore. This is shown clipped when playing, full when dead.
+
+static void do_powerbtn_menu() {
+	int i=powerbtn_menu_show(tilegfx_get_fb());
+	if (i==POWERBTN_MENU_EXIT) kchal_exit_to_chooser();
+	if (i==POWERBTN_MENU_POWERDOWN) kchal_power_down();
+}
 
 //Clear pipes off the pipemap.
 void pipemap_clear() {
@@ -173,6 +180,7 @@ int do_menu() {
 		if (btn&KC_BTN_UP) sel--;
 		if (btn&KC_BTN_DOWN) sel++;
 		if (btn&KC_BTN_A) return sel;
+		if (btn&KC_BTN_POWER) do_powerbtn_menu();
 		if (sel<0) sel=0;
 		if (sel>=MENU_ITEMS) sel=MENU_ITEMS-1;
 	}
@@ -240,6 +248,7 @@ void play_game() {
 	while(1) {
 		//Parse input
 		int btn=get_keydown();
+		if (btn&KC_BTN_POWER) do_powerbtn_menu();
 		if (btn & (KC_BTN_A | KC_BTN_B)) {
 			starting=0;	//If we're on the start screen, go actually play now.
 			if (!dead) {
