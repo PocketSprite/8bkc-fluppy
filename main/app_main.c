@@ -1,23 +1,12 @@
-#include <stdio.h>
-#include <stdint.h>
-#include <stddef.h>
-#include <string.h>
-#include "appfs.h"
-#include <assert.h>
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "esp_log.h"
-#include "ugui.h"
-#include "8bkc-hal.h"
-#include "8bkc-ugui.h"
-#include "tilegfx.h"
-#include "appfs.h"
-#include "rom/rtc.h"
-#include "sndmixer.h"
-#include "esp_timer.h"
-#include <math.h>
-#include "powerbtn_menu.h"
-#include "graphics.h"
+#include <math.h>   // cos, sin
+#include <stdint.h> // unit8_t, etc.
+
+#include "8bkc-hal.h"      // kchalinit, etc. includes nvs functions
+#include "powerbtn_menu.h" // Power Button menu stuff powerbtn_menu_show, constants, etc
+#include "sndmixer.h"      // sndmixer functions
+#include "tilegfx.h"       // tilegfx functions and types
+
+#include "graphics.h" // Tile data
 
 /*
  This is Fluppy Bird, an example on how to use the PocketSprite SDK.
